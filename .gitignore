@@ -1,0 +1,15 @@
+# Virtual environment
+.venv/
+
+# Local secrets / environment
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test/tool cache
+.pytest_cache/
+
+# OS/editor noise
+.DS_Store
