@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Project Registry</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/styles.css"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>Project Registry</h1>
+            <p>A tiny full-stack CRUD application.</p>
+        </header>
+
+        <section class="panel">
+
+            <h2 id="form-title">
+                Create Project
+            </h2>
+
+            <form id="project-form">
+
+                <label>
+                    Name
+
+                    <input
+                        id="project-name"
+                        type="text"
+                        maxlength="120"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Description
+
+                    <textarea
+                        id="project-description"
+                        maxlength="1000"
+                    ></textarea>
+                </label>
+
+                <label>
+                    Status
+
+                    <select id="project-status">
+                        <option value="planned">Planned</option>
+                        <option value="active">Active</option>
+                        <option value="done">Done</option>
+                    </select>
+                </label>
+
+                <div class="actions">
+
+                    <button
+                        type="submit"
+                        id="submit-button"
+                    >
+                        Create Project
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-edit"
+                        hidden
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="toolbar">
+
+                <h2>Projects</h2>
+
+                <label>
+                    Filter
+
+                    <select id="filter-status">
+                        <option value="">All</option>
+                        <option value="planned">Planned</option>
+                        <option value="active">Active</option>
+                        <option value="done">Done</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div id="project-list"></div>
+
+        </section>
+
+    </main>
+
+    <script
+        src="/static/app.js"
+        defer
+    ></script>
+
+</body>
+</html>

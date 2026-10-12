@@ -1,0 +1,79 @@
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    background: #f4f4f5;
+    color: #18181b;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 40px auto;
+}
+
+.panel {
+    background: white;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+}
+
+form,
+label {
+    display: grid;
+    gap: 8px;
+}
+
+form {
+    gap: 18px;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    padding: 10px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.actions,
+.toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.toolbar {
+    justify-content: space-between;
+}
+
+button {
+    padding: 9px 14px;
+    cursor: pointer;
+}
+
+.project-card {
+    border-top: 1px solid #ddd;
+    padding: 18px 0;
+}
+
+.project-card:first-child {
+    border-top: 0;
+}
+
+.project-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.status {
+    font-weight: 600;
+}

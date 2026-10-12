@@ -1,11 +1,20 @@
 from contextlib import asynccontextmanager
 from typing import Literal
 
+from pathlib import Path
+
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
 from fastapi import Depends, FastAPI, HTTPException, Query, Response, status
 from sqlalchemy.orm import Session
 
 from . import crud, models, schemas
 from .database import Base, engine, get_db
+
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = ROOT_DIR / "frontend"
 
 
 @asynccontextmanager
@@ -19,6 +28,20 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.mount(
+    "/static",
+    StaticFiles(directory=FRONTEND_DIR),
+    name="static",
+)
+
+@app.get(
+    "/",
+    include_in_schema=False,
+)
+def frontend():
+    return FileResponse(
+        FRONTEND_DIR / "index.html"
+    )
 
 @app.get("/api/projects", response_model=list[schemas.ProjectRead])
 def list_projects(
